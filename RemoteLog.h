@@ -10,7 +10,7 @@
 #define RLOG_IP_ADDRESS "replace with ip"
 #define RLOG_PORT 11909
 
-__attribute__((unused)) static void RLogv(NSString* format, va_list args)
+__attribute__((unused)) NS_FORMAT_FUNCTION(1,0) static void RLogv(NSString* format, va_list args)
 {
     #if DEBUG
         NSString* str = [[NSString alloc] initWithFormat:format arguments:args];
@@ -49,7 +49,7 @@ __attribute__((unused)) static void RLogv(NSString* format, va_list args)
     #endif
 }
 
-__attribute__((unused)) static void RLog(NSString* format, ...)
+__attribute__((unused)) NS_FORMAT_FUNCTION(1,2) static void RLog(NSString* format, ...)
 {
     #if DEBUG
         va_list args;
